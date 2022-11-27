@@ -39,25 +39,25 @@ namespace ALT
             this._button_ConvertText = new System.Windows.Forms.Button();
             this._textBox_CellLen = new System.Windows.Forms.TextBox();
             this._button_SaveImage = new System.Windows.Forms.Button();
-            this._button_LoadImage = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             this._textBox3 = new System.Windows.Forms.TextBox();
+            this._textBox_InputBase64 = new System.Windows.Forms.TextBox();
             this._textBox_str = new System.Windows.Forms.TextBox();
-            this._button_ParseImage = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this._pictureBox_bmp = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this._textBox_imageInfo = new System.Windows.Forms.TextBox();
             this._textBox_imageInfo2 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this._textBox_ParseResult = new System.Windows.Forms.TextBox();
-            this.button5 = new System.Windows.Forms.Button();
+            this._button_LoadImage = new System.Windows.Forms.Button();
             this._button_LoadImage2 = new System.Windows.Forms.Button();
-            this._textBox_InputBase64 = new System.Windows.Forms.TextBox();
-            this._textBox_ParsedText64 = new System.Windows.Forms.TextBox();
+            this._button_ParseImage = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
+            this._textBox_ParsedText64 = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this._textBox_ParseResult = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -159,7 +159,7 @@ namespace ALT
             this._textBox_CellLen.Name = "_textBox_CellLen";
             this._textBox_CellLen.Size = new System.Drawing.Size(75, 21);
             this._textBox_CellLen.TabIndex = 1;
-            this._textBox_CellLen.Text = "10";
+            this._textBox_CellLen.Text = "1";
             // 
             // _button_SaveImage
             // 
@@ -171,15 +171,15 @@ namespace ALT
             this._button_SaveImage.UseVisualStyleBackColor = true;
             this._button_SaveImage.Click += new System.EventHandler(this._button_SaveImage_Click);
             // 
-            // _button_LoadImage
+            // button5
             // 
-            this._button_LoadImage.Location = new System.Drawing.Point(14, 280);
-            this._button_LoadImage.Name = "_button_LoadImage";
-            this._button_LoadImage.Size = new System.Drawing.Size(115, 23);
-            this._button_LoadImage.TabIndex = 1;
-            this._button_LoadImage.Text = "이미지 불러오기";
-            this._button_LoadImage.UseVisualStyleBackColor = true;
-            this._button_LoadImage.Click += new System.EventHandler(this._button_LoadImage_Click);
+            this.button5.Location = new System.Drawing.Point(253, 280);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(115, 23);
+            this.button5.TabIndex = 1;
+            this.button5.Text = "button";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // _textBox3
             // 
@@ -187,6 +187,16 @@ namespace ALT
             this._textBox3.Name = "_textBox3";
             this._textBox3.Size = new System.Drawing.Size(75, 21);
             this._textBox3.TabIndex = 3;
+            // 
+            // _textBox_InputBase64
+            // 
+            this._textBox_InputBase64.Location = new System.Drawing.Point(3, 140);
+            this._textBox_InputBase64.Multiline = true;
+            this._textBox_InputBase64.Name = "_textBox_InputBase64";
+            this._textBox_InputBase64.ReadOnly = true;
+            this._textBox_InputBase64.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this._textBox_InputBase64.Size = new System.Drawing.Size(387, 131);
+            this._textBox_InputBase64.TabIndex = 0;
             // 
             // _textBox_str
             // 
@@ -197,16 +207,6 @@ namespace ALT
             this._textBox_str.Size = new System.Drawing.Size(387, 131);
             this._textBox_str.TabIndex = 0;
             this._textBox_str.Text = "Lorem Ipsum";
-            // 
-            // _button_ParseImage
-            // 
-            this._button_ParseImage.Location = new System.Drawing.Point(256, 280);
-            this._button_ParseImage.Name = "_button_ParseImage";
-            this._button_ParseImage.Size = new System.Drawing.Size(115, 23);
-            this._button_ParseImage.TabIndex = 1;
-            this._button_ParseImage.Text = "이미지 해석";
-            this._button_ParseImage.UseVisualStyleBackColor = true;
-            this._button_ParseImage.Click += new System.EventHandler(this._button_ParseImage_Click);
             // 
             // panel2
             // 
@@ -265,6 +265,36 @@ namespace ALT
             this.label2.TabIndex = 4;
             this.label2.Text = "label2";
             // 
+            // _button_LoadImage
+            // 
+            this._button_LoadImage.Location = new System.Drawing.Point(14, 280);
+            this._button_LoadImage.Name = "_button_LoadImage";
+            this._button_LoadImage.Size = new System.Drawing.Size(115, 23);
+            this._button_LoadImage.TabIndex = 1;
+            this._button_LoadImage.Text = "이미지 불러오기";
+            this._button_LoadImage.UseVisualStyleBackColor = true;
+            this._button_LoadImage.Click += new System.EventHandler(this._button_LoadImage_Click);
+            // 
+            // _button_LoadImage2
+            // 
+            this._button_LoadImage2.Location = new System.Drawing.Point(135, 280);
+            this._button_LoadImage2.Name = "_button_LoadImage2";
+            this._button_LoadImage2.Size = new System.Drawing.Size(115, 23);
+            this._button_LoadImage2.TabIndex = 1;
+            this._button_LoadImage2.Text = "이미지 불러오기2";
+            this._button_LoadImage2.UseVisualStyleBackColor = true;
+            this._button_LoadImage2.Click += new System.EventHandler(this._button_LoadImage2_Click);
+            // 
+            // _button_ParseImage
+            // 
+            this._button_ParseImage.Location = new System.Drawing.Point(256, 280);
+            this._button_ParseImage.Name = "_button_ParseImage";
+            this._button_ParseImage.Size = new System.Drawing.Size(115, 23);
+            this._button_ParseImage.TabIndex = 1;
+            this._button_ParseImage.Text = "이미지 해석";
+            this._button_ParseImage.UseVisualStyleBackColor = true;
+            this._button_ParseImage.Click += new System.EventHandler(this._button_ParseImage_Click);
+            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.WindowFrame;
@@ -279,45 +309,14 @@ namespace ALT
             this.panel3.Size = new System.Drawing.Size(415, 398);
             this.panel3.TabIndex = 2;
             // 
-            // _textBox_ParseResult
+            // button1
             // 
-            this._textBox_ParseResult.Location = new System.Drawing.Point(3, 140);
-            this._textBox_ParseResult.Multiline = true;
-            this._textBox_ParseResult.Name = "_textBox_ParseResult";
-            this._textBox_ParseResult.ReadOnly = true;
-            this._textBox_ParseResult.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this._textBox_ParseResult.Size = new System.Drawing.Size(409, 131);
-            this._textBox_ParseResult.TabIndex = 0;
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(253, 280);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(115, 23);
-            this.button5.TabIndex = 1;
-            this.button5.Text = "button";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
-            // _button_LoadImage2
-            // 
-            this._button_LoadImage2.Location = new System.Drawing.Point(135, 280);
-            this._button_LoadImage2.Name = "_button_LoadImage2";
-            this._button_LoadImage2.Size = new System.Drawing.Size(115, 23);
-            this._button_LoadImage2.TabIndex = 1;
-            this._button_LoadImage2.Text = "이미지 불러오기2";
-            this._button_LoadImage2.UseVisualStyleBackColor = true;
-            this._button_LoadImage2.Click += new System.EventHandler(this._button_LoadImage2_Click);
-            // 
-            // _textBox_InputBase64
-            // 
-            this._textBox_InputBase64.Location = new System.Drawing.Point(3, 140);
-            this._textBox_InputBase64.Multiline = true;
-            this._textBox_InputBase64.Name = "_textBox_InputBase64";
-            this._textBox_InputBase64.ReadOnly = true;
-            this._textBox_InputBase64.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this._textBox_InputBase64.Size = new System.Drawing.Size(387, 131);
-            this._textBox_InputBase64.TabIndex = 0;
+            this.button1.Location = new System.Drawing.Point(13, 280);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(115, 23);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "텍스트 변환";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // _textBox_ParsedText64
             // 
@@ -328,15 +327,6 @@ namespace ALT
             this._textBox_ParsedText64.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this._textBox_ParsedText64.Size = new System.Drawing.Size(409, 131);
             this._textBox_ParsedText64.TabIndex = 0;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(13, 280);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(115, 23);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "텍스트 변환";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // button2
             // 
@@ -355,6 +345,16 @@ namespace ALT
             this.button3.TabIndex = 7;
             this.button3.Text = "button";
             this.button3.UseVisualStyleBackColor = true;
+            // 
+            // _textBox_ParseResult
+            // 
+            this._textBox_ParseResult.Location = new System.Drawing.Point(3, 140);
+            this._textBox_ParseResult.Multiline = true;
+            this._textBox_ParseResult.Name = "_textBox_ParseResult";
+            this._textBox_ParseResult.ReadOnly = true;
+            this._textBox_ParseResult.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this._textBox_ParseResult.Size = new System.Drawing.Size(409, 131);
+            this._textBox_ParseResult.TabIndex = 0;
             // 
             // MainForm
             // 

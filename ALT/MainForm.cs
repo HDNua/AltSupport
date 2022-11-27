@@ -388,11 +388,13 @@ namespace ALT
             int y0,
             int cellWidth,
             int cellHeight,
-            int cellLen
+            int cellLen,
+            out byte[] bytes
             )
         {
             if (bitmap == null)
             {
+                bytes = null;
                 return false;
             }
 
@@ -503,8 +505,8 @@ namespace ALT
             */
             _BytesTextBase64 = blText.ToArray();
             _TextBase64 = Encoding.UTF8.GetString(_BytesTextBase64);
-            byte[] baText = Convert.FromBase64String(_TextBase64);
-            string text = Encoding.UTF8.GetString(baText);
+            bytes = Convert.FromBase64String(_TextBase64);
+            string text = Encoding.UTF8.GetString(bytes);
 
             //
             _textBox_ParsedText64.Text = _TextBase64;
@@ -528,7 +530,8 @@ namespace ALT
                 y0: 0,
                 cellWidth: bitmap.Width,
                 cellHeight: bitmap.Height,
-                cellLen: CELL_LEN
+                cellLen: CELL_LEN,
+                bytes: out byte[] bytes
                 ) == false)
             {
                 return;
@@ -543,7 +546,7 @@ namespace ALT
         private void _button_LoadImage2_Click(object sender, EventArgs e)
         {
             //
-            const string INPUT_FILENAME = @"C:\Users\rbfwm\Desktop\str.bmp";
+            const string INPUT_FILENAME = @"C:\Users\rbfwm\Desktop\str2.bmp";
             Bitmap bitmap = ReadBitmap(INPUT_FILENAME);
 
             //
@@ -563,7 +566,7 @@ namespace ALT
             int cellLen = -1;
             for (int dist = 0; dist < maxCellWidth; ++dist)
             {
-                Console.WriteLine("d = {0}", dist);
+                //Console.WriteLine("d = {0}", dist);
                 for (int yi = 0; yi <= dist; ++yi)
                 {
                     int xi = dist - yi;
@@ -600,20 +603,28 @@ namespace ALT
             Console.WriteLine("길이: ({0})", cellLen);
 
             //
+            byte[] bytes;
             if (ParseAltBackClipBitmap(
                 bitmap: bitmap,
                 x0: cellLen * targetXi,
                 y0: cellLen * targetYi,
                 cellWidth: width,
                 cellHeight: height,
-                cellLen: cellLen
+                cellLen: cellLen,
+                bytes: out bytes
                 ) == false)
             {
                 return;
             }
 
             //
-            Console.WriteLine();
+            Console.WriteLine("Fetch done...");
+
+            //
+            File.WriteAllBytes("archive.tar.gz", bytes);
+
+            //
+            Console.WriteLine("Decoding done...");
         }
 
         /// <summary>
